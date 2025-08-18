@@ -88,12 +88,35 @@
       ]
     },
     "condition": {
-      "regexFilter": "\\.(webp|jpg|jpeg|png|gif|bmp|svg|mp4|webm|mov|mkv|avi|m3u8|mpd|ts|m4s)(\\?.*)?$",
+      "requestDomains": ["infyverse.space", "localhost"],
       "resourceTypes": ["xmlhttprequest"]
     }
   },
   {
     "id": 4,
+    "priority": 3,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        {
+          "header": "Cross-Origin-Resource-Policy",
+          "operation": "set",
+          "value": "cross-origin"
+        },
+        {
+          "header": "Access-Control-Allow-Origin",
+          "operation": "set",
+          "value": "*"
+        }
+      ]
+    },
+    "condition": {
+      "regexFilter": "\\.(webp|jpg|jpeg|png|gif|bmp|svg|mp4|webm|mov|mkv|avi|m3u8|mpd|ts|m4s)(\\?.*)?$",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 5,
     "priority": 1,
     "action": {
       "type": "modifyHeaders",
